@@ -32,6 +32,7 @@ Search for videos by keyword.
 
 ### 2. Get Download URL & Metadata (v2)
 ```python
+## Available options for resolution: 360,720,1080,2160
 info = client.download(video="QW8-UVmMm_Q", type="mp4", resolution=360)
 print(info["url"])
 ```
@@ -41,6 +42,7 @@ Returns a download URL and metadata for the video. Does not download the file.
 
 ### 3. Download Video File
 ```python
+## Available options for resolution: 360,720,1080,2160
 success = client.download_file(video="QW8-UVmMm_Q", output_path="video.mp4", type="mp4", resolution=360)
 print("Downloaded:", success)
 ```
