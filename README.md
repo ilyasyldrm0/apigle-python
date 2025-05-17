@@ -7,7 +7,7 @@ A Python client for the Apigle API, providing YouTube-like data endpoints.
 Install dependencies:
 
 ```bash
-pip install -r requirements.txt
+pip install apigle
 ```
 
 ## Quick Start
