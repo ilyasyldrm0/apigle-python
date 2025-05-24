@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='apigle',
-    version='1.0.0',
+    version='1.0.1',
     description='Official Python client for Apigle.com API',
     author='Boztek LTD',
     packages=find_packages(),

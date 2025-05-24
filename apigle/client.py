@@ -68,7 +68,7 @@ class ApigleClient:
             return False
 
     # /v2/search
-    def search_v2(self, q: str, part: str = "snippet", regionCode: str = None, maxResults: int = None, order: str = None, pageToken: str = None):
+    def search_v2(self, q: str, part: str = "snippet", regionCode: str = "US", maxResults: int = 100, order: str = "relevance", pageToken: str = None):
         params = {"q": q, "part": part}
         if regionCode:
             params["regionCode"] = regionCode
@@ -96,12 +96,8 @@ class ApigleClient:
         return self._get(ENDPOINTS["channel_details"], params)
 
     # /v2/channelVideos
-    def channel_videos(self, channelId: str, part: str = "snippet,id", order: str = None, maxResults: int = None, pageToken: str = None):
-        params = {"channelId": channelId, "part": part}
-        if order:
-            params["order"] = order
-        if maxResults:
-            params["maxResults"] = maxResults
+    def channel_videos(self, channelId: str, part: str = "snippet,id", order: str = "date", maxResults: int = 50, pageToken: str = None):
+        params = {"channelId": channelId, "part": part, "order": order, "maxResults": maxResults}
         if pageToken:
             params["pageToken"] = pageToken
         return self._get(ENDPOINTS["channel_videos"], params)
@@ -112,21 +108,15 @@ class ApigleClient:
         return self._get(ENDPOINTS["playlist_details"], params)
 
     # /v2/playlistVideos
-    def playlist_videos(self, playlistId: str, part: str = "snippet", maxResults: int = None, pageToken: str = None):
+    def playlist_videos(self, playlistId: str, part: str = "snippet", maxResults: int = 50, pageToken: str = None):
         params = {"playlistId": playlistId, "part": part}
-        if maxResults:
-            params["maxResults"] = maxResults
         if pageToken:
             params["pageToken"] = pageToken
         return self._get(ENDPOINTS["playlist_videos"], params)
 
     # /v2/trending
-    def trending(self, part: str = "snippet", videoCategoryId: int = 1, regionCode: str = None, maxResults: int = None, pageToken: str = None):
-        params = {"part": part, "videoCategoryId": videoCategoryId}
-        if regionCode:
-            params["regionCode"] = regionCode
-        if maxResults:
-            params["maxResults"] = maxResults
+    def trending(self, part: str = "snippet", videoCategoryId: int = 1, regionCode: str = "US", maxResults: int = 50, pageToken: str = None):
+        params = {"part": part, "videoCategoryId": videoCategoryId, "regionCode": regionCode, "maxResults": maxResults}
         if pageToken:
             params["pageToken"] = pageToken
         return self._get(ENDPOINTS["trending"], params)
