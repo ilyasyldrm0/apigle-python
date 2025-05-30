@@ -42,6 +42,11 @@ class ApigleClient:
         if resolution:
             params["resolution"] = resolution
         return self._get(ENDPOINTS["download"], params)
+
+        # /v2/downloadstr
+    def downloadstr(self, video: str):
+        params = {"video": video}
+        return self._get(ENDPOINTS["downloadstr"], params)
     
     # download and save file using the url from download endpoint response
     def download_file(self, video: str, output_path: str, type: str = "mp4", resolution: int = None) -> bool:

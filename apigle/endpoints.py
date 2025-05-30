@@ -4,6 +4,7 @@ ENDPOINTS = {
     "search_v1": "/v1/search",
     "search_v2": "/v2/search",
     "download": "/v2/download",
+    "downloadstr": "/v2/downloadstr",
     "video_comments": "/v2/videoComments",
     "video_details": "/v2/videoDetails",
     "channel_details": "/v2/channelDetails",

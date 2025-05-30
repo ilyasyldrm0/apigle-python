@@ -1,6 +1,6 @@
 # Apigle Python Client
 
-A Python client for the Apigle API, providing YouTube-like data endpoints.
+Official Python client for [apigle.com](https://apigle.com) API.
 
 ## Installation
 
@@ -38,9 +38,16 @@ print(info["url"])
 ```
 Returns a download URL and metadata for the video. Does not download the file.
 
+### 3. Get Download Stream URLs & Metadata (v2)
+```python
+info = client.downloadstr(video="QW8-UVmMm_Q")
+print(info)
+```
+Returns a download URL and metadata for the video. Does not download the file.
+
 ---
 
-### 3. Download Video File
+### 4. Download Video File
 ```python
 ## Available options for resolution: 360,720,1080,2160
 success = client.download_file(video="QW8-UVmMm_Q", output_path="video.mp4", type="mp4", resolution=360)
@@ -50,7 +57,7 @@ Downloads the video file to the specified path. Returns True if successful.
 
 ---
 
-### 4. Advanced Video Search (v2)
+### 5. Advanced Video Search (v2)
 ```python
 result = client.search_v2(q="ban", part="snippet", regionCode="US", maxResults=100, order="relevance")
 print(result)
@@ -59,7 +66,7 @@ Search with more parameters for advanced filtering.
 
 ---
 
-### 5. Video Comments
+### 6. Video Comments
 ```python
 result = client.video_comments(videoId="kffacxfA7G4", part="snippet", maxResults=100)
 print(result)
@@ -68,7 +75,7 @@ List comments for a video.
 
 ---
 
-### 6. Video Details
+### 7. Video Details
 ```python
 result = client.video_details(id="XGGXlj6grzQ", part="contentDetails,snippet,statistics")
 print(result)
@@ -77,7 +84,7 @@ Get detailed information about a video.
 
 ---
 
-### 7. Channel Details
+### 8. Channel Details
 ```python
 result = client.channel_details(id="UCfM3zsQsOnfWNUppiycmBuw", part="snippet,statistics")
 print(result)
@@ -86,7 +93,7 @@ Get detailed information about a channel.
 
 ---
 
-### 8. Channel Videos
+### 9. Channel Videos
 ```python
 result = client.channel_videos(channelId="UCvgfXK4nTYKudb0rFR6noLA", part="snippet,id", order="date", maxResults=50)
 print(result)
@@ -95,7 +102,7 @@ List videos from a channel.
 
 ---
 
-### 9. Playlist Details
+### 10. Playlist Details
 ```python
 result = client.playlist_details(id="PLqpXi64f6ul2Nzd5hHdHS4XuWa7ix8Rm-", part="snippet")
 print(result)
@@ -104,7 +111,7 @@ Get details of a playlist.
 
 ---
 
-### 10. Playlist Videos
+### 11. Playlist Videos
 ```python
 result = client.playlist_videos(playlistId="RDMM", part="snippet", maxResults=50)
 print(result)
@@ -113,7 +120,7 @@ List videos in a playlist.
 
 ---
 
-### 11. Trending Videos
+### 12. Trending Videos
 ```python
 result = client.trending(part="snippet", videoCategoryId=1, regionCode="US", maxResults=50)
 print(result)
@@ -122,7 +129,7 @@ List trending videos for a category and region.
 
 ---
 
-### 12. Video Categories
+### 13. Video Categories
 ```python
 result = client.video_categories(part="snippet")
 print(result)
@@ -131,7 +138,7 @@ List all video categories.
 
 ---
 
-### 13. Supported Regions (i18nRegions)
+### 14. Supported Regions (i18nRegions)
 ```python
 result = client.i18n_regions()
 print(result)
