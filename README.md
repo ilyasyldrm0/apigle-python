@@ -43,7 +43,7 @@ Returns a download URL and metadata for the video. Does not download the file.
 info = client.downloadstr(video="QW8-UVmMm_Q")
 print(info)
 ```
-Returns a download URL and metadata for the video. Does not download the file.
+Returns a download stream URLs and metadata for the video. Does not download the file.
 
 ---
 
